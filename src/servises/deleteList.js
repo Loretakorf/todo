@@ -1,5 +1,7 @@
+import { TODO } from "../utils/routes"
+
 export const deleteList = (id) => {
-    return   fetch('https://codeacademy-todo.vercel.app/api/todo?user=loreta', {
+    return   fetch(TODO, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'

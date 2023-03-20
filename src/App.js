@@ -13,7 +13,7 @@ import { useState, useEffect } from "react";
 import Alert from "@mui/material/Alert";
 
 import Box from "@mui/material/Box";
-
+console.log(process.env.REACT_APP_API_URL);
 function App() {
   const { list, reloadData, loading, error: loadingError } = useList();
   const { open, onOpen, onClose } = useModal();
