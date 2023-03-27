@@ -10,10 +10,10 @@ import { TodoModal } from "../components/TodoModal";
 import { useState, useEffect } from "react";
 import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
-
+import  Button  from "@mui/material/Button";
 console.log(process.env.REACT_APP_API_URL);
 
-function TodoView() {
+function TodoView({onLogout}) {
   const { list, reloadData, loading, error: loadingError } = useList();
   const { open, onOpen, onClose } = useModal();
   const [editData, setEditData] = useState(null);
@@ -36,6 +36,7 @@ function TodoView() {
   return (
     <>
       <Heading title="Todo List"/>
+      <Button variant="text" size="cm" color="error" onClick={onLogout}>LOgout</Button>
       <AddNewTodo onOpen={onOpen} />
 
       <TodoModal

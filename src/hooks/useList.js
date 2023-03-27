@@ -11,6 +11,7 @@ export const useList = () => {
     try {
       const data = await getList();
       setList(data.documents);
+      console.log(data);
       setError()
     } catch (error) {
       setError("could not fetch Todo list Please reload the page");

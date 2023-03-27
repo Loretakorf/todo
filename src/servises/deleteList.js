@@ -1,15 +1,20 @@
-import { TODO } from "../utils/routes"
+import { TODO } from "../utils/routes";
+import Cookies from "js-cookie";
 
 export const deleteList = (id) => {
-    return   fetch(TODO, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            _id: id,
-        })
-    })
-        .then(response => response.json())
-       
-}
+  const token = Cookies.get("_todo_token");
+
+  return fetch(TODO, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      token,
+    },
+    body: JSON.stringify({
+      _id: id,
+    }).then((res) => {
+      if (!res.ok) throw new Error("Request failed");
+      return res.json();
+    }),
+  })
+};
