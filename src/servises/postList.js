@@ -10,10 +10,8 @@ export const postList = (todo) => {
       token,
     },
     body: JSON.stringify(todo),
-  })
-    .then((res) => {
-      if (!res.ok) throw new Error("Request failed");
-      return res.json();
-    })
-    
+  }).then((res) => {
+    if (!res.ok) throw new Error("Request failed");
+    return res.json();
+  });
 };
